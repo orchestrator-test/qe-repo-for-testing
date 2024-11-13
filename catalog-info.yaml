@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: repofortestingm2k
+  description: A workflow for onboarding applications to OCP cluster
+  annotations:
+    argocd/app-selector: rht-gitops.com/janus-argocd=repofortestingm2k
+    backstage.io/kubernetes-namespace: orchestrator-gitops
+    backstage.io/kubernetes-id: repofortestingm2k-ci
+    janus-idp.io/tekton: repofortestingm2k
+    github.com/project-slug: orchestrator-test/qe-repo-for-testing
+spec:
+  type: workflow-project
+  system: system:default/janus-orchestrator
+  lifecycle: development
+  owner: user:guest

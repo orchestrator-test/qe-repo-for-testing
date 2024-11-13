@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: repofortestingm2k-gitops
+  namespace: orchestrator-gitops
+  labels:
+    app-type: workflow
+    app: repofortestingm2k
+    rht-gitops.com/janus-argocd: repofortestingm2k-gitops
+spec:
+  destination:
+    namespace: sonataflow-infra
+    server: https://kubernetes.default.svc
+  project: orchestrator-gitops
+  source:
+    path: ./kustomize/base
+    repoURL: git@github.com:orchestrator-test/qe-repo-for-testing-gitops.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

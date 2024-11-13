@@ -1,0 +1,25 @@
+id: repofortestingm2k
+version: "1.0.0-SNAPSHOT"
+specVersion: "0.8"
+name: "repofortestingm2k"
+description: "A workflow for onboarding applications to OCP cluster"
+annotations:
+  - "workflow-type/infrastructure"
+dataInputSchema:
+  failOnValidationErrors: true
+  schema: schemas/repofortestingm2k-input-schema.json
+functions:
+  - name: logInfo
+    type: custom
+    operation: "sysout:INFO"
+start: "StartState"
+states:
+  - name: "StartState"
+    type: "operation"
+    actions:
+      - name: logInput
+        functionRef:
+          refName: logInfo
+          arguments:
+            message: '"You entered " + .sampleText'
+    end: true
