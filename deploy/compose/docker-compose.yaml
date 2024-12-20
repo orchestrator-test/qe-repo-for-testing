@@ -1,0 +1,8 @@
+version: "3.5"
+services:
+  repofortestingm2k:
+    container_name: repofortestingm2k
+    image: quay.io/test/repofortestingm2k:latest
+    ports:
+      - target: 8080
+        published: 8080
