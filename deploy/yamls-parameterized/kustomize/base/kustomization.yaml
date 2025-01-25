@@ -1,0 +1,5 @@
+resources:
+  - repofortestingm2k-latest-imagestream.yaml
+  - repofortestingm2k-route.yaml
+  - repofortestingm2k-service.yaml
+  - repofortestingm2k-deployment.yaml
