@@ -1,0 +1,12 @@
+resources:
+  - asd-git-repo-eventlistener.yaml
+  - asd-ingress.yaml
+  - asd-run-clone-build-push-triggertemplate.yaml
+  - asd-tekton-triggers-admin-rolebinding.yaml
+  - asd-tekton-triggers-admin-serviceaccount.yaml
+  - asd-clone-build-push-pipeline.yaml
+  - asd-git-event-triggerbinding.yaml
+  - asd-git-repo-github-com-secret.yaml
+  - asd-image-registry-secret.yaml
+  - asd-tekton-triggers-admin-role.yaml
+  - asd-clone-push-serviceaccount.yaml

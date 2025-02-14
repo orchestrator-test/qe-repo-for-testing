@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  creationTimestamp: null
+  labels:
+    move2kube.konveyor.io/service: asd
+  name: asd
+spec:
+  rules:
+    - host: asd.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: el-asd-git-repo
+                port:
+                  name: port-8080
+            path: /el-asd-git-repo
+            pathType: Prefix
+status:
+  loadBalancer: {}

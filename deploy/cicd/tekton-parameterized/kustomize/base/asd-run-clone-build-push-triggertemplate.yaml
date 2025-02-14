@@ -1,0 +1,38 @@
+
+---
+apiVersion: triggers.tekton.dev/v1beta1
+kind: TriggerTemplate
+metadata:
+    creationTimestamp: null
+    name: asd-run-clone-build-push
+spec:
+    resourcetemplates:
+        - apiVersion: tekton.dev/v1beta1
+          kind: PipelineRun
+          metadata:
+            creationTimestamp: null
+            name: asd-clone-build-push-$(uid)
+          spec:
+            params:
+                - name: image-registry-url
+                  value: quay.io/asd
+            pipelineRef:
+                name: asd-clone-build-push
+            serviceAccountName: asd-clone-push
+            workspaces:
+                - name: asd-shared-data
+                  volumeClaimTemplate:
+                    metadata:
+                        creationTimestamp: null
+                    spec:
+                        accessModes:
+                            - ReadWriteOnce
+                        resources:
+                            requests:
+                                storage: 1Gi
+                        storageClassName: default
+                    status: {}
+          status: {}
+status: {}
+
+...

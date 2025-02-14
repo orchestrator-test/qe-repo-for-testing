@@ -1,0 +1,4 @@
+resources:
+  - asd-ingress.yaml
+  - repofortestingm2k-deployment.yaml
+  - repofortestingm2k-service.yaml
