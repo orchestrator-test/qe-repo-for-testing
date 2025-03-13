@@ -1,0 +1,21 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  creationTimestamp: null
+  labels:
+    move2kube.konveyor.io/service: repofortestingm2k
+  name: repofortestingm2k
+spec:
+  host: qe.lab.redhat.com
+  path: /repofortestingm2k
+  port:
+    targetPort: port-8080
+  tls:
+    termination: passthrough
+  to:
+    kind: Service
+    name: repofortestingm2k
+    weight: 1
+status:
+  ingress:
+    - {}
